@@ -1,1 +1,17 @@
 @import "tailwindcss";
+
+body {
+  font-family: "Roboto", sans-serif;
+}
+
+.italic {
+  font-style: italic;
+}
+
+.font-thin {
+  font-weight: 100;
+}
+
+.font-bold {
+  font-weight: 700;
+}
