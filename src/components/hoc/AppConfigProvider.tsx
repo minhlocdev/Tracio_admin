@@ -14,35 +14,31 @@ const AppConfigProvider: React.FC<AppConfigProviderProps> = ({
   type ThemeData = {
     borderRadius: number;
     colorPrimary: string;
-    colorBgContainer: string; // Add this
-    colorTextBase: string; // Add this
+    colorBgContainer: string;
+    colorTextBase: string;
     Button?: {
       colorPrimary: string;
     };
   };
 
-  // Function to get the CSS variable value
   const getCSSVar = (variableName: string): string => {
     return getComputedStyle(document.documentElement)
       .getPropertyValue(variableName)
       .trim();
   };
 
-  // Function to build the theme data
   const buildThemeData = useCallback((isDark: boolean): ThemeData => {
-    const themePrefix = isDark ? "dark" : "light";
-
     return {
-      borderRadius: 6, // Or get it from a CSS variable if you have one
-      colorPrimary: getCSSVar("--primary"),
+      borderRadius: 6,
+      colorPrimary: getCSSVar("--primary") || "#1890ff",
       colorBgContainer: getCSSVar(
-        `--${themePrefix === "dark" ? "background" : "card"}`
-      ), // Dynamically get bg
+        isDark ? "--background-dark" : "--background-light"
+      ),
       colorTextBase: getCSSVar(
-        `--${themePrefix === "dark" ? "foreground" : "foreground"}`
+        isDark ? "--foreground-dark" : "--foreground-light"
       ),
       Button: {
-        colorPrimary: getCSSVar("--primary"),
+        colorPrimary: getCSSVar("--primary") || "#1890ff",
       },
     };
   }, []);
@@ -61,8 +57,8 @@ const AppConfigProvider: React.FC<AppConfigProviderProps> = ({
         token: {
           colorPrimary: themeData.colorPrimary,
           borderRadius: themeData.borderRadius,
-          colorBgContainer: themeData.colorBgContainer, // Add this
-          colorTextBase: themeData.colorTextBase, // Add this
+          colorBgContainer: themeData.colorBgContainer,
+          colorTextBase: themeData.colorTextBase,
         },
         components: {
           Button: {
