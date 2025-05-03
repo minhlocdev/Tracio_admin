@@ -1,4 +1,6 @@
-import { Report, PaginatedResponse, ResponseModel } from "@models";
+import { PaginatedResponse } from "@models/PaginationModel";
+import { Report } from "@models/Report";
+import { ResponseModel } from "@models/ResponseModel";
 
 export type GetReportRequest = {
   pageNumber?: number;
