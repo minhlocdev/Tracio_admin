@@ -1,28 +1,34 @@
-import React, { useState } from "react";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import {
-  LoadableHome,
-  LoadableAbout,
-} from "./utils/imports/LoadableComponents";
+import React, { useEffect } from "react";
+import { BrowserRouter as Router } from "react-router-dom";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import ErrorBoundary from "./components/hoc/ErrorBoundary";
-import Login from "./pages/Login";
 import AppConfigProvider from "./components/hoc/AppConfigProvider";
+import { useDarkModeStore } from "./store/useDarkModeStore";
+import { useThemeColorStore } from "./store/useThemeColorStore";
+import RoutesHolder from "./components/hoc/RoutesHolder";
+
+const queryClient = new QueryClient();
 
 const App: React.FC = () => {
-  const [isDarkMode] = useState(true); // Manage dark mode state
+  const { isDarkMode } = useDarkModeStore();
+  const loadColors = useThemeColorStore((state) => state.loadColors);
+
+  useEffect(() => {
+    loadColors();
+  }, [loadColors]);
 
   return (
-    <Router>
-      <ErrorBoundary>
-        <AppConfigProvider isDarkMode={isDarkMode}>
-          <Routes>
-            <Route path="/login" element={<Login />} />
-            <Route path="/" element={<LoadableHome />} />
-            <Route path="/about" element={<LoadableAbout />} />
-          </Routes>
-        </AppConfigProvider>
-      </ErrorBoundary>
-    </Router>
+    <QueryClientProvider client={queryClient}>
+      <ReactQueryDevtools initialIsOpen={false} />
+      <Router>
+        <ErrorBoundary>
+          <AppConfigProvider isDarkMode={isDarkMode}>
+            <RoutesHolder />
+          </AppConfigProvider>
+        </ErrorBoundary>
+      </Router>
+    </QueryClientProvider>
   );
 };
 
