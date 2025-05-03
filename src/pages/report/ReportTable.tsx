@@ -2,7 +2,7 @@ import React, { useMemo, useState } from "react";
 import { Table, Input, Tag, Space } from "antd";
 import type { ColumnsType, TablePaginationConfig } from "antd/es/table";
 import { FilterValue, SorterResult } from "antd/es/table/interface";
-import { Report } from "@models/Report";
+import { Report } from "@models";
 
 const { Search } = Input;
 
