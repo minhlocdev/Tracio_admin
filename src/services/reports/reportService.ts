@@ -1,8 +1,6 @@
-
-import { PaginatedResponse } from "@models/PaginationModel";
 import axiosClient from "../axiosClient";
 import { GetReportRequest, GetReportResponse } from "./models/getReport";
-import { Report } from "@models/Report";
+import { Report, PaginatedResponse } from "@models";
 
 export const getReports = async (
   params: GetReportRequest
