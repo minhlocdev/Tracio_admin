@@ -32,13 +32,11 @@ const SubscriptionTable: React.FC<SubscriptionTableProps> = ({
         dataIndex: "subscriptionPlanId",
         key: "subscriptionPlanId",
         width: 70,
-        sorter: true,
       },
       {
         title: "Plan Name",
         dataIndex: "name",
         key: "name",
-        sorter: true,
         render: (text: string) => <span className="font-medium">{text}</span>,
       },
       {
@@ -62,6 +60,7 @@ const SubscriptionTable: React.FC<SubscriptionTableProps> = ({
           { text: "Active", value: true },
           { text: "Inactive", value: false },
         ],
+        filterMultiple: false,
         render: (isActive: boolean) => (
           <Tag color={isActive ? "green" : "red"}>
             {isActive ? "Active" : "Inactive"}
@@ -78,18 +77,19 @@ const SubscriptionTable: React.FC<SubscriptionTableProps> = ({
       {
         title: "Actions",
         key: "actions",
-        render: (_, record) => (
-          <Popconfirm
-            title="Are you sure you want to delete this subscription?"
-            onConfirm={() => deleteSubscription(record.subscriptionPlanId)}
-            okText="Yes"
-            cancelText="No"
-          >
-            <Button danger size="small" loading={isPending}>
-              Delete
-            </Button>
-          </Popconfirm>
-        ),
+        render: (_, record) =>
+          record.isActive && (
+            <Popconfirm
+              title="Are you sure you want to delete this subscription?"
+              onConfirm={() => deleteSubscription(record.subscriptionPlanId)}
+              okText="Yes"
+              cancelText="No"
+            >
+              <Button danger size="small" loading={isPending}>
+                Delete
+              </Button>
+            </Popconfirm>
+          ),
       },
     ],
     [deleteSubscription, isPending]

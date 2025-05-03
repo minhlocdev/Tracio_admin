@@ -10,9 +10,12 @@ type SubscriptionPagination<T> = Partial<PaginatedResponse<T>> & {
   hasNextPage: boolean;
 };
 export type GetSubscriptionRequest = {
-  keyword: string;
-  pageSize: number;
-  pageNumber: number;
+  keyword?: string;
+  isActive?: boolean;
+  sortBy?: "created_at" | "is_active";
+  isAscending?: boolean;
+  pageNumber?: number;
+  pageSize?: number;
 };
 
 export type GetSubscriptionResponse = ResponseModel<
