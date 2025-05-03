@@ -6,7 +6,7 @@ import type { TablePaginationConfig } from "antd/es/table";
 import { FilterValue, SorterResult } from "antd/es/table/interface";
 import { Report } from "@models";
 
-const Report = () => {
+const ReportPage = () => {
   const [search, setSearch] = useState<string>("");
   const [page, setPage] = useState<number>(1);
   const [pageSize, setPageSize] = useState<number>(10);
@@ -85,4 +85,4 @@ const Report = () => {
   );
 };
 
-export default Report;
+export default ReportPage;
