@@ -30,11 +30,6 @@ export const menuItems = [
     icon: <AppstoreOutlined />,
     children: [
       {
-        label: "Create Subscription",
-        key: "Subscription_Create",
-        path: "/subscriptions/create",
-      },
-      {
         label: "View Subscriptions",
         key: "Subscription_Read",
         path: "/subscriptions",
@@ -60,10 +55,7 @@ export const menuItems = [
     key: "Report",
     type: "submenu",
     icon: <FileTextOutlined />,
-    children: [
-      { label: "Create Report", key: "Report_Create", path: "/reports/create" },
-      { label: "View Reports", key: "Report_Read", path: "/reports" },
-    ],
+    children: [{ label: "View Reports", key: "Report_Read", path: "/reports" }],
   },
   {
     label: "Challenges",

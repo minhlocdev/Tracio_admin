@@ -51,9 +51,6 @@ const RoutesHolder: React.FC = () => {
 
         {/* Subscriptions */}
         <Route path="/subscriptions" element={<LoadableSubscription />} />
-        <Route path="/subscriptions/detail/:id" element={<LoadableShop />} />
-        <Route path="/subscriptions/create" element={<LoadableShop />} />
-        <Route path="/subscriptions/update/:id" element={<LoadableShop />} />
 
         {/* Users */}
         <Route path="/users" element={<LoadableUser />} />
