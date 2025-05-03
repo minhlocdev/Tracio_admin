@@ -1,6 +1,7 @@
 import React from "react";
 import { useDarkModeStore } from "../../store/useDarkModeStore";
 import { BulbOutlined, BulbFilled } from "@ant-design/icons";
+
 const TopBar: React.FC = () => {
   const { isDarkMode, toggleDarkMode } = useDarkModeStore();
 
@@ -20,10 +21,27 @@ const TopBar: React.FC = () => {
         zIndex: 10,
       }}
     >
+      <div style={{ display: "flex", alignItems: "center" }}>
+        <img
+          src="/logo.svg"
+          alt="App Logo"
+          style={{ height: "40px", marginRight: "12px" }}
+        />
+        <span
+          style={{
+            fontSize: "18px",
+            fontWeight: "bold",
+            color: isDarkMode ? "#ffffff" : "#000000",
+          }}
+        >
+          Tracio Admin
+        </span>
+      </div>
+
+      {/* ✅ Dark mode toggle on the right */}
       <button
         onClick={toggleDarkMode}
         style={{
-          marginLeft: "auto",
           background: "none",
           border: "none",
           fontSize: "24px",

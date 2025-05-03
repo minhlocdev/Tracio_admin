@@ -6,6 +6,6 @@ interface DarkModeState {
 }
 
 export const useDarkModeStore = create<DarkModeState>((set) => ({
-  isDarkMode: true, // default true
+  isDarkMode: true,
   toggleDarkMode: () => set((state) => ({ isDarkMode: !state.isDarkMode })),
 }));

@@ -1,73 +1,40 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React from "react";
 import { ConfigProvider } from "antd";
 import enUS from "antd/locale/en_US";
+import { useThemeColorStore } from "../../store/useThemeColorStore";
 
 interface AppConfigProviderProps {
   children: React.ReactNode;
   isDarkMode: boolean;
 }
 
-const AppConfigProvider: React.FC<AppConfigProviderProps> = ({
-  children,
-  isDarkMode,
-}) => {
-  type ThemeData = {
-    borderRadius: number;
-    colorPrimary: string;
-    colorBgContainer: string;
-    colorTextBase: string;
-    Button?: {
-      colorPrimary: string;
-    };
-  };
-
-  const getCSSVar = (variableName: string): string => {
-    return getComputedStyle(document.documentElement)
-      .getPropertyValue(variableName)
-      .trim();
-  };
-
-  const buildThemeData = useCallback((isDark: boolean): ThemeData => {
-    return {
-      borderRadius: 6,
-      colorPrimary: getCSSVar("--primary") || "#1890ff",
-      colorBgContainer: getCSSVar(
-        isDark ? "--background-dark" : "--background-light"
-      ),
-      colorTextBase: getCSSVar(
-        isDark ? "--foreground-dark" : "--foreground-light"
-      ),
-      Button: {
-        colorPrimary: getCSSVar("--primary") || "#1890ff",
-      },
-    };
-  }, []);
-
-  const [themeData, setThemeData] = useState<ThemeData>(
-    buildThemeData(isDarkMode)
-  );
-
-  useEffect(() => {
-    setThemeData(buildThemeData(isDarkMode));
-  }, [isDarkMode, buildThemeData]);
+const AppConfigProvider: React.FC<AppConfigProviderProps> = ({ children }) => {
+  const colors = useThemeColorStore((state) => state.colors);
 
   return (
     <ConfigProvider
-      theme={{
-        token: {
-          colorPrimary: themeData.colorPrimary,
-          borderRadius: themeData.borderRadius,
-          colorBgContainer: themeData.colorBgContainer,
-          colorTextBase: themeData.colorTextBase,
-        },
-        components: {
-          Button: {
-            colorPrimary: themeData.Button?.colorPrimary,
-          },
-        },
-      }}
+      theme={
+        {
+          // token: {
+          //   colorPrimary: colors["--primary"] || "#1890ff",
+          //   borderRadius: 6,
+          //   colorBgContainer: colors["--background"],
+          //   colorTextBase: colors["--foreground"],
+          // },
+          // components: {
+          //   Button: {
+          //     colorPrimary: colors["--primary"],
+          //   },
+          //   Table: {
+          //     headerBg: colors["--card"],
+          //     headerColor: colors["--card-foreground"],
+          //     rowHoverBg: colors["--popover"],
+          //   },
+          // },
+        }
+      }
       locale={enUS}
-      componentSize="middle"
+      componentSize="small"
       direction="ltr"
     >
       {children}

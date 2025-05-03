@@ -3,11 +3,13 @@ import { Routes, Route } from "react-router-dom";
 import {
   LoadableCategory,
   LoadableChallenge,
+  LoadableChallengeDetail,
   LoadableDashboard,
   LoadableReport,
   LoadableShop,
   LoadableSubscription,
   LoadableUser,
+  LoadableUserDetail,
 } from "../../utils/imports/LoadableComponents";
 import Login from "../../pages/login";
 import MainLayout from "../layouts/MainLayout";
@@ -30,7 +32,10 @@ const RoutesHolder: React.FC = () => {
 
         {/* Challenges */}
         <Route path="/challenges" element={<LoadableChallenge />} />
-        <Route path="/challenges/detail/:id" element={<LoadableShop />} />
+        <Route
+          path="/challenges/detail/:id"
+          element={<LoadableChallengeDetail />}
+        />
         <Route path="/challenges/create" element={<LoadableShop />} />
         <Route path="/challenges/update/:id" element={<LoadableShop />} />
 
@@ -43,8 +48,6 @@ const RoutesHolder: React.FC = () => {
         {/* Shops */}
         <Route path="/shops" element={<LoadableShop />} />
         <Route path="/shops/detail/:id" element={<LoadableShop />} />
-        <Route path="/shops/create" element={<LoadableShop />} />
-        <Route path="/shops/update/:id" element={<LoadableShop />} />
 
         {/* Subscriptions */}
         <Route path="/subscriptions" element={<LoadableSubscription />} />
@@ -54,8 +57,7 @@ const RoutesHolder: React.FC = () => {
 
         {/* Users */}
         <Route path="/users" element={<LoadableUser />} />
-        <Route path="/users/detail/:id" element={<LoadableShop />} />
-        <Route path="/users/update/:id" element={<LoadableShop />} />
+        <Route path="/users/detail/:id" element={<LoadableUserDetail />} />
       </Route>
     </Routes>
   );

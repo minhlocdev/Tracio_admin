@@ -17,25 +17,14 @@ export const menuItems = [
     icon: <DashboardOutlined />,
   },
   {
-    label: "Category",
+    label: "Categories",
     key: "Category",
-    type: "submenu",
+    path: "/categories",
+    type: "item",
     icon: <TagsOutlined />,
-    children: [
-      {
-        label: "Create Category",
-        key: "Category_Create",
-        path: "/categories/create",
-      },
-      {
-        label: "View Categories",
-        key: "Category_Read",
-        path: "/categories",
-      },
-    ],
   },
   {
-    label: "Subscription",
+    label: "Subscriptions",
     key: "Subscription",
     type: "submenu",
     icon: <AppstoreOutlined />,
@@ -60,17 +49,14 @@ export const menuItems = [
     icon: <UserOutlined />,
   },
   {
-    label: "Shop",
+    label: "Manage Shops",
     key: "Shop",
-    type: "submenu",
+    path: "/shops",
+    type: "item",
     icon: <ShopOutlined />,
-    children: [
-      { label: "Create Shop", key: "Shop_Create", path: "/shops/create" },
-      { label: "View Shops", key: "Shop_Read", path: "/shops" },
-    ],
   },
   {
-    label: "Report",
+    label: "Reports",
     key: "Report",
     type: "submenu",
     icon: <FileTextOutlined />,
@@ -80,7 +66,7 @@ export const menuItems = [
     ],
   },
   {
-    label: "Challenge",
+    label: "Challenges",
     key: "Challenge",
     type: "submenu",
     icon: <TrophyOutlined />,

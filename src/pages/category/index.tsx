@@ -41,20 +41,21 @@ const Category: React.FC = () => {
   if (error) return <div>Error loading categories.</div>;
 
   return (
-    <div className="flex flex-col gap-3 w-full">
-      <Table<Cate>
-        rowKey="categoryId"
-        columns={columns}
-        dataSource={data}
-        loading={isLoading}
-        pagination={{ pageSize: 10 }}
-        className="w-full"
-      />
-
-      <div className="flex">
-        <div className="w-full max-w-md">
-          <CategoryForm />
-        </div>
+    <div className="flex flex-row gap-6 w-full items-start">
+      {/* Table on the left */}
+      <div className="flex-1">
+        <Table<Cate>
+          rowKey="categoryId"
+          columns={columns}
+          dataSource={data}
+          loading={isLoading}
+          pagination={{ pageSize: 10 }}
+          className="w-full"
+        />
+      </div>
+      <div className="w-[320px] border border-neutral-200 rounded-lg p-4 shadow-sm bg-white">
+        <h3 className="text-lg font-semibold mb-2">Create New Category</h3>
+        <CategoryForm />
       </div>
     </div>
   );
