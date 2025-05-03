@@ -7,7 +7,6 @@
     "paths": {
       "@models": ["constants/models/index.ts"],
       "@hooks/*": ["hooks/*"],
-      "@components": ["components/*"],
       "@services/*": ["services/*"]
     },
     "moduleResolution": "Node",

@@ -13,6 +13,7 @@ import {
 } from "../../utils/imports/LoadableComponents";
 import Login from "../../pages/login";
 import MainLayout from "../layouts/MainLayout";
+import PrivateRoute from "./PrivateRoute";
 
 const RoutesHolder: React.FC = () => {
   return (
@@ -21,7 +22,13 @@ const RoutesHolder: React.FC = () => {
       <Route path="/login" element={<Login />} />
 
       {/* Protected Routes inside Main Layout */}
-      <Route element={<MainLayout />}>
+      <Route
+        element={
+          <PrivateRoute>
+            <MainLayout />
+          </PrivateRoute>
+        }
+      >
         <Route index element={<LoadableDashboard />} />
 
         {/* Categories */}

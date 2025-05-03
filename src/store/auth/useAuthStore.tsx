@@ -1,6 +1,6 @@
 import { create } from "zustand";
 
-interface AuthState {
+export interface AuthState {
   isAuthenticated: boolean;
   login: () => void;
   logout: () => void;
