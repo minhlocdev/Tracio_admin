@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
-import { User } from "../../constants/models/User";
-import { getUserDetail } from "../../services/users/userService";
+import { User } from "@models";
+import { getUserDetail } from "@services/users";
 
 export const useGetUserById = (id: number) => {
   return useQuery<User, Error>({

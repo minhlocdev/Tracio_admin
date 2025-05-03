@@ -1,7 +1,7 @@
 import React from "react";
 import { Input, Button, message } from "antd";
 import { useForm, Controller } from "react-hook-form";
-import { usePostCategory } from "../../hooks/categories/usePostCategory";
+import { usePostCategory } from "@hooks/categories";
 
 interface CategoryFormInputs {
   categoryName: string;

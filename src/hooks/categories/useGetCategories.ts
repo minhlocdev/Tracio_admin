@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
-import { getCategories } from "../../services/categories/categoryService";
-import { Category } from "../../constants/models/Category";
+import { getCategories } from "@services/categories";
+import { Category } from "@models";
 
 export const useGetCategories = () => {
   return useQuery<Category[]>({

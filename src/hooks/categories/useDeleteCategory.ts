@@ -1,6 +1,6 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { message } from "antd";
-import { deleteCategory } from "../../services/categories/categoryService";
+import { deleteCategory } from "@services/categories";
 
 export const useDeleteCategory = () => {
   const queryClient = useQueryClient();

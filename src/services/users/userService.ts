@@ -1,6 +1,4 @@
-import { PaginatedResponse } from "../../constants/models/PaginationModel";
-import { ResponseModel } from "../../constants/models/ResponseModel";
-import { User } from "../../constants/models/User";
+import { User, PaginatedResponse, ResponseModel } from "@models";
 import axiosClient from "../axiosClient";
 import { GetUserRequest, GetUsersResponse } from "./models/getUser";
 import { LoginRequest, LoginResponse } from "./models/login";

@@ -1,7 +1,7 @@
 import React from "react";
 import { Button, Input, message } from "antd";
 import { useForm, Controller } from "react-hook-form";
-import { useLogin } from "../../hooks/users/useLogin";
+import { useLogin } from "@hooks/users";
 import { useNavigate } from "react-router-dom";
 
 interface LoginFormInputs {

@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { Table, Avatar, Button, Space } from "antd";
 import { useNavigate } from "react-router-dom";
-import { useGetUsers } from "../../hooks/users/useGetUsers";
-import { User } from "../../constants/models/User";
+import { useGetUsers } from "@hooks/users";
+import { User } from "@models";
 import BanReasonModal from "./BanReasonModal";
 
 const UserPage: React.FC = () => {

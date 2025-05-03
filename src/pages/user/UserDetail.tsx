@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import { Descriptions, Avatar, Card, Spin, Button } from "antd";
-import { useGetUserById } from "../../hooks/users/useGetUserDetail";
-import { User } from "../../constants/models/User";
+import { useGetUserById } from "@hooks/users";
+import { User } from "@models";
 import BanReasonModal from "./BanReasonModal";
 
 const UserDetail: React.FC = () => {

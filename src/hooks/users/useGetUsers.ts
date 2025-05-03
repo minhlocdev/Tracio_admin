@@ -1,8 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
-import { getUsers } from "../../services/users/userService";
-import { GetUserRequest } from "../../services/users/models/getUser";
-import { PaginatedResponse } from "../../constants/models/PaginationModel";
-import { User } from "../../constants/models/User";
+import { GetUserRequest, getUsers } from "@services/users";
+import { PaginatedResponse, User } from "@models";
 
 export const useGetUsers = (params: GetUserRequest) => {
   return useQuery<PaginatedResponse<User>, Error>({

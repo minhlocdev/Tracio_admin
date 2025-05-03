@@ -1,6 +1,4 @@
-import { PaginatedResponse } from "../../../constants/models/PaginationModel";
-import { ResponseModel } from "../../../constants/models/ResponseModel";
-import { User } from "../../../constants/models/User";
+import { ResponseModel, User, PaginatedResponse } from "@models";
 
 export type GetUserRequest = {
   pageNumber?: number;

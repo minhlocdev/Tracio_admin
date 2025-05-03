@@ -1,9 +1,8 @@
 import React from "react";
 import { Button, Popconfirm, Table } from "antd";
-import { useGetCategories } from "../../hooks/categories/useGetCategories";
-import { Category as Cate } from "../../constants/models/Category";
+import { Category as Cate } from "@models";
 import CategoryForm from "./CategoryForm";
-import { useDeleteCategory } from "../../hooks/categories/useDeleteCategory";
+import { useGetCategories, useDeleteCategory } from "@hooks/categories";
 
 const Category: React.FC = () => {
   const { data, isLoading, error } = useGetCategories();
