@@ -9,6 +9,10 @@ const __dirname = path.dirname(__filename);
 
 export default defineConfig({
   plugins: [react(), tailwindcss()],
+  base: "/",
+  build: {
+    outDir: "dist",
+  },
   resolve: {
     alias: {
       "@models": path.resolve(__dirname, "src/constants/models"),
